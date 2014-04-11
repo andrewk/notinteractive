@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}notinteractive | andrew krespanis{% endblock %}</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  {% block head %}{% endblock %}
+</head>
+<body>
+<header>
+  <span>notinteractive</span>
+</header>
+<section>
+  {% block content %}
+
+  {% endblock %}
+</section>
+<footer>
+  <span class="copyright">Copyright 2014 Andrew Krespanis</span>
+</footer>
+</body>
+</html>

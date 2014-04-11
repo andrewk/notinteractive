@@ -1,10 +1,30 @@
-<html>
-<head>
-<title>My Blog</title>
-</head>
-<body>
-<h1>{{ title }}</h1>
-<time>{{ date }}</time>
-{{ contents | safe }}
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<header>
+  <h1>{{ title }}</h1>
+  <strong>{{ excerpt }}</strong>
+  <time>{{ date|date('F jS, Y') }}</time>
+</header>
+
+  {{ contents | safe }}
+
+<footer>
+  {% if next %}
+    <div>More recently:
+      <a href="/{{ next.path }}" rel="next">
+        {{ next.title }}
+      </a>
+  {% endif %}
+
+  {% if previous %}
+    <div>Previously:
+      <a href="/{{ previous.path }}" rel="previous">
+        {{ prevous.title }}
+      </a>
+  {% endif %}
+</footer>
+
+{% endblock %}

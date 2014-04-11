@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<ol>
+  {% for key, post in posts %}
+  <li>
+    <article>
+      <h2>
+        <a href="/{{ post.path }}">{{ post.title }}</a>
+      </h2>
+      <div class="description">{{ post.excerpt }}</div>
+      <time>{{ post.date | date('F jS, Y') }}</time>
+    </article>
+  </li>
+  {% endfor %}
+</ol>
+{% endblock %}
